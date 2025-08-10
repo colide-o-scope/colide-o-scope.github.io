@@ -36,8 +36,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      opacity: 0.5; /* subtle petal effect */
+      z-index: -2; /* Place behind overlay */
+      opacity: 0.7; /* Increase for visibility */
     }
 
     .section {
@@ -255,9 +255,14 @@
       blurbElement.appendChild(span);
     });
 
-    // Floating Petal Effect
+    // Floating Heart Effect
     const canvas = document.getElementById('petalCanvas');
     const ctx = canvas.getContext('2d');
+    if (ctx) {
+      console.log('Canvas context initialized successfully');
+    } else {
+      console.error('Failed to get canvas context');
+    }
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -271,7 +276,7 @@
         this.size = Math.random() * 4 + 2;
         this.speedX = Math.random() * 0.3 - 0.15;
         this.speedY = Math.random() * 0.6 - 0.3;
-        this.opacity = Math.random() * 0.4 + 0.3;
+        this.opacity = Math.random() * 0.4 + 0.5; // Range 0.5–0.9
       }
 
       update() {
@@ -279,13 +284,18 @@
         this.y += this.speedY;
         if (this.x < 0 || this.x > canvas.width) this.x = Math.random() * canvas.width;
         if (this.y < 0 || this.y > canvas.height) this.y = Math.random() * canvas.height;
-        this.opacity = Math.random() * 0.4 + 0.3; // Gentle flicker
+        this.opacity = Math.random() * 0.4 + 0.5; // Range 0.5–0.9
       }
 
       draw() {
-        ctx.fillStyle = `rgba(224, 201, 230, ${this.opacity})`; /* pale lavender */
+        ctx.fillStyle = `rgba(230, 180, 230, ${this.opacity})`; /* Brighter lavender */
         ctx.beginPath();
-        ctx.ellipse(this.x, this.y, this.size, this.size * 0.6, Math.PI / 4, 0, Math.PI * 2); /* petal shape */
+        // Draw sharper heart shape using Bezier curves
+        const s = this.size * 0.5; // Keep size from previous fix
+        ctx.moveTo(this.x, this.y - s);
+        ctx.bezierCurveTo(this.x - s * 1.4, this.y - s * 1.4, this.x - s * 1.4, this.y, this.x, this.y + s * 1.8);
+        ctx.bezierCurveTo(this.x + s * 1.4, this.y, this.x + s * 1.4, this.y - s * 1.4, this.x, this.y - s);
+        ctx.closePath();
         ctx.fill();
       }
     }
@@ -294,6 +304,7 @@
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
       }
+      console.log(`Initialized ${particleCount} particles`);
     }
 
     function animateParticles() {
@@ -311,6 +322,7 @@
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      console.log('Canvas resized to', canvas.width, 'x', canvas.height);
     });
   </script>
 
