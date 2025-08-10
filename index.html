@@ -1,1 +1,313 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Designs by Terri - Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1528460033278-a6ba6ce51066?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); /* royalty-free abstract pink/purple */
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #f5e6f0; /* very light pink */
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(120, 80, 140, 0.3); /* soft lavender overlay */
+      z-index: -1;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5; /* subtle petal effect */
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 12px;
+      background: rgba(80, 60, 100, 0.9); /* muted lavender */
+      box-shadow: 0 0 20px rgba(245, 230, 240, 0.2); /* very light pink shadow */
+    }
+
+    .intro {
+      background: linear-gradient(135deg, #d8a7ca, #b19cd9); /* pink to lavender */
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: dropFade 2s ease-out forwards;
+      padding-top: 20px;
+    }
+
+    .intro h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0 0 10px;
+      color: #f5e6f0; /* very light pink */
+    }
+
+    .intro p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 20px auto 0;
+      max-width: 700px;
+      display: block;
+      text-align: justify;
+      color: #FFFFFF; /* pale lavender */
+    }
+
+    .countdown {
+      background: #d8a7ca; /* soft pink */
+      text-align: center;
+      font-size: 2em;
+      color: #f5e6f0; /* very light pink */
+    }
+
+    .form-section {
+      background: linear-gradient(135deg, #d8a7ca, #b19cd9); /* pink to lavender */
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .form-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      margin: 0 0 20px;
+      text-align: center;
+      color: #f5e6f0; /* very light pink */
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 12px;
+      border: 2px solid #e0c9e6; /* pale lavender */
+      border-radius: 8px;
+      font-size: 1em;
+      background: #6b5b95; /* dark lavender */
+      color: #f5e6f0; /* very light pink */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #f5e6f0; /* very light pink */
+      box-shadow: 0 0 5px rgba(245, 230, 240, 0.6); /* very light pink glow */
+    }
+
+    form textarea {
+      grid-column: span 2;
+      resize: vertical;
+    }
+
+    form .subject {
+      grid-column: span 2;
+    }
+
+    form button {
+      grid-column: span 2;
+      background: #e0c9e6; /* pale lavender */
+      color: #6b5b95; /* dark lavender */
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    form button:hover {
+      background: #f5e6f0; /* very light pink */
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #f5e6f0; /* very light pink */
+      text-shadow: 0 0 4px rgba(245, 230, 240, 0.3); /* very light pink shadow */
+    }
+
+    @keyframes dropFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-char {
+      opacity: 0;
+      animation: fadeInChar 0.6s forwards;
+    }
+
+    @keyframes fadeInChar {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="petalCanvas"></canvas>
+
+  <section class="section intro" id="intro">
+    <h1>Colide.O.Scope Designs</h1>
+	<center>By Terri</center>
+    <p id="blurb"></p>
+  </section>
+
+  <section class="section countdown">
+    Launching in: <span id="timer">Loading...</span>
+  </section>
+
+  <section class="section form-section">
+    <h2>Stay Connected</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+	<input type="hidden" name="access_key" value="2c6eaea1-f662-497b-b9a8-d9245b387be8" />
+	<!-- DOMAIN LOCK: only allow submissions from your GitHub Pages site -->
+	<input type="hidden" name="domain" value="colide-o-scope.github.io" />
+	<input type="hidden" name="subject" value="New Message From Colide.O.Scope Designs" />
+	<input type="hidden" name="from_name" value="Colide.O.Scope Designs" />
+	<div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+	<label for="website">Leave this field blank</label>
+	<input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+	</div>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="subject" class="subject" placeholder="Subject" required />
+      <textarea rows="5" name="message" placeholder="Comment or Inquiry"></textarea>
+	  <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
+	  <div class="h-captcha" data-captcha="true" data-theme="light"></div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Designs by Terri. All rights reserved.
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = () => {
+      const launchDate = new Date("September 1, 2025 00:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = launchDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const d = Math.floor(gap / day);
+      const h = Math.floor((gap % day) / hour);
+      const m = Math.floor((gap % hour) / minute);
+      const s = Math.floor((gap % minute) / second);
+
+      document.getElementById("timer").innerText = `${d}d ${h}h ${m}m ${s}s`;
+    };
+
+    setInterval(countdown, 1000);
+
+    // Animated Blurb Text
+    const blurbText = "Discover the art of adornment with custom handmade jewelry that celebrates your unique spirit. Each piece is lovingly crafted to blend timeless elegance with personal expression. Let your style speak volumes — where every gem tells your story, and every detail is designed with heart.";
+    const blurbElement = document.getElementById("blurb");
+
+    blurbText.split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.className = "fade-char";
+      span.style.animationDelay = `${i * 0.03}s`;
+      blurbElement.appendChild(span);
+    });
+
+    // Floating Petal Effect
+    const canvas = document.getElementById('petalCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 60; // Moderate for a delicate effect
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 4 + 2;
+        this.speedX = Math.random() * 0.3 - 0.15;
+        this.speedY = Math.random() * 0.6 - 0.3;
+        this.opacity = Math.random() * 0.4 + 0.3;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.x = Math.random() * canvas.width;
+        if (this.y < 0 || this.y > canvas.height) this.y = Math.random() * canvas.height;
+        this.opacity = Math.random() * 0.4 + 0.3; // Gentle flicker
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(224, 201, 230, ${this.opacity})`; /* pale lavender */
+        ctx.beginPath();
+        ctx.ellipse(this.x, this.y, this.size, this.size * 0.6, Math.PI / 4, 0, Math.PI * 2); /* petal shape */
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+</body>
+</html>
