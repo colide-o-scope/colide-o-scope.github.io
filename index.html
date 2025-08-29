@@ -1,331 +1,464 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colide.O.Scope Designs by Terri - Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1528460033278-a6ba6ce51066?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); /* royalty-free abstract pink/purple */
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #f5e6f0; /* very light pink */
-      position: relative;
-      overflow-x: hidden;
+    <head>
+        <title>Colide.O.Scope Designs</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Custom handmade jewelry and crafts by Colide.O.Scope Designs, crafted with love to spark joy and individuality." />
+        <meta name="keywords" content="handmade jewelry, custom jewelry, Colide.O.Scope Designs, artisan jewelry, crochet, keychains, magnets" />
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+			 h2.major {
+			    font-family: 'Great Vibes', cursive;
+				text-transform: none; /* Override uppercase to use natural case */
+				font-size: 2.5em; /* Adjust size for better readability */
+			}
+            .features {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+                position: relative !important;
+                z-index: 1000 !important;
+            }
+            .features article {
+                visibility: visible !important;
+                opacity: 1 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                box-sizing: border-box !important;
+                padding: 0 !important;
+                max-width: calc(50% - 0.27em) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                margin-bottom: 1em !important;
+            }
+            .features img {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                width: 200px !important;
+                height: 200px !important;
+                object-fit: cover !important;
+                border-radius: 0 !important;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                position: relative !important;
+                z-index: 1100 !important;
+            }
+            .features img[alt] {
+                text-align: center;
+                line-height: 200px;
+                background: #f0f0f0;
+                color: #333;
+                font-size: 14px;
+            }
+            .features p {
+                margin: 0.5em 0 0 0;
+                text-align: center;
+                font-size: 0.9em;
+                color: #fff; /* White to match product names */
+            }
+            @media screen and (max-width: 1366px) {
+                .features article {
+                    flex: 1 1 calc(50% - 0.27em) !important;
+                    max-width: calc(50% - 0.27em) !important;
+                }
+            }
+            @media screen and (max-width: 736px) {
+                .features article {
+                    flex: 1 1 100% !important;
+                    max-width: 100% !important;
+                }
+            }
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000 !important;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.lightbox.active {
+    display: flex !important;
+    opacity: 1 !important;
+}
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px; /* Limit the container width */
+    max-height: 90%; /* Keep the height constraint */
+}
+.lightbox-image {
+    max-width: 600px; /* Set a reasonable max-width for the image */
+    max-height: 70vh; /* Use viewport height to limit size */
+    width: 100%; /* Ensure responsiveness */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: default !important;
+}
+.lightbox-title {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0.5em 0 0.25em;
+    text-align: center;
+    cursor: default !important;
+}
+.lightbox-description {
+    color: #ccc;
+    font-size: 1em;
+    margin: 0;
+    text-align: center;
+    max-width: 80%;
+    cursor: default !important;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 2.5em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10001 !important;
+}
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.7);
+    color: #ddd;
+}
+@media screen and (max-width: 736px) {
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(120, 80, 140, 0.3); /* soft lavender overlay */
-      z-index: -1;
+    .lightbox-image {
+        max-width: 400px; /* Smaller max-width for mobile */
+        max-height: 60vh; /* Slightly smaller height for mobile */
+        width: 100%;
+        height: auto;
     }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2; /* Place behind overlay */
-      opacity: 0.7; /* Increase for visibility */
+    .lightbox-title {
+        font-size: 1.2em;
     }
-
-    .section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 40px 20px;
-      border-radius: 12px;
-      background: rgba(80, 60, 100, 0.9); /* muted lavender */
-      box-shadow: 0 0 20px rgba(245, 230, 240, 0.2); /* very light pink shadow */
+    .lightbox-description {
+        font-size: 0.9em;
+        max-width: 90%;
     }
-
-    .intro {
-      background: linear-gradient(135deg, #d8a7ca, #b19cd9); /* pink to lavender */
-      text-align: center;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: dropFade 2s ease-out forwards;
-      padding-top: 20px;
+    .lightbox-close {
+        font-size: 2em;
+        top: 10px;
+        right: 10px;
     }
+}
 
-    .intro h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5em;
-      margin: 0 0 10px;
-      color: #f5e6f0; /* very light pink */
-    }
+        </style>
+    </head>
+    <body class="is-preload">
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Header -->
+            <header id="header">
+                <div class="logo">
+                    <span class="icon fa-gem"></span>
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h2>Colide.O.Scope Designs</h2>
+                        <p>Welcome to Colide.O.Scope Designs, where Terri’s handmade creations add a burst of color and joy to your world! From sparkling jewelry to playful keychains (including adorable crochet octopuses) and quirky magnets, every piece is crafted with love and a touch of whimsy. Dive in and find a treasure that celebrates your unique style!</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#intro">Intro</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- Main -->
+            <div id="main">
+                <!-- Intro -->
+                <article id="intro">
+                    <h2 class="major">Intro</h2>
+                    <!-- <span class="image main"><img src="images/pic01.jpg" alt="Handcrafted gemstone necklace by Colide.O.Scope Designs" /></span> -->
+                    <p>Discover the magic of Colide.O.Scope Designs, where every piece is handcrafted to spark joy! My playful jewelry, like lightweight earrings perfect for any outfit, adds a pop of personality to your style. Whether dressing up or keeping it casual, you’ll find treasures that fit your vibe.</p>
+                    <p>Explore vibrant keychains (including adorable crochet octopuses and jelly fish), quirky magnets, stylish barrettes, and more—all made with love and a dash of whimsy. Let our creations bring a smile to your day!</p>
+                </article>
+                <!-- Work -->
+                <article id="work">
+                    <h2 class="major">Work</h2>
+                    <!-- <span class="image main"><img src="images/pic02.jpg" alt="Custom jewelry collection by Colide.O.Scope Designs" /></span> -->
+                    <p>Welcome to the heart of Colide.O.Scope Designs, where creativity comes to life! Explore our collection of handcrafted treasures, from sparkling jewelry to playful keychains (including adorable crochet octopuses and jelly fish) and quirky magnets. Each piece is made with love and a dash of magic, perfect for adding a pop of personality to your style. Have a question or want a custom creation? Reach out via our contact form!</p>
+                    <section class="features" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4em; margin: 0 auto; max-width: 720px; box-sizing: border-box;">
+                        <!-- UVF Wraps (Commented Out) -->
+                        <!--
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/product-image.jpg" alt="UVF Wraps by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">UVF Wraps</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Vibrant, glow-in-the-dark wraps that add a bold, colorful twist to your accessories.</p>
+                        </article>
+                        -->
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Earrings-Small.jpg" alt="Earrings by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Earrings</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Handcrafted earrings, from delicate drops to statement pieces, designed to dazzle.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Necklace-Small.jpg" alt="Necklaces by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Necklaces</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Unique necklaces that blend elegance and whimsy for every occasion.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Rings-Small.jpg" alt="Rings by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Rings</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Handcrafted rings that sparkle and shimmer and shout with personality.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Bracelets-Small.jpg" alt="Rings by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Bracelets</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Handwoven and beaded bracelets that wrap your wrist in color, texture, and charm.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Key-Chains-Small.jpg" alt="Key Chains by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Key Chains</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Fun and functional keychains with a playful, handmade charm.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Magnets-Small.jpg" alt="Magnets by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Magnets</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Colorful, quirky magnets to brighten up any space.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Barrettes-Small.jpg" alt="Barrettes by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Barrettes</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Stylish hair accessories with a handmade, artistic flair.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Cup-Wraps-Small.jpg" alt="Cup Wraps by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Cup Wraps</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Clear vinyl wraps that turn your tumbler into a canvas of pop, sass, and spooky charm.</p>
+                        </article>
+                        <article style="flex: 1 1 calc(50% - 0.27em); max-width: calc(50% - 0.27em); min-width: 200px; display: flex; flex-direction: column; align-items: center; background: none; border: none; box-shadow: none; padding: 0; box-sizing: border-box; margin-bottom: 1em;">
+                            <img src="images/Pins-Small.jpg" alt="Pins by Colide.O.Scope Designs" style="width: 200px !important; height: 200px !important; object-fit: cover !important; display: block; margin: 0 auto; background: none; border: none; box-shadow: none;" />
+                            <h4 style="margin: 0.5em 0 0 0; text-align: center;">Pins</h4>
+                            <p style="margin: 0.5em 0 0 0; text-align: center; font-size: 0.9em; color: #fff;">Funky pins that turn mushrooms, munchies, and wax into wearable art.</p>
+                        </article>
+                    </section>
+                </article>
+                <!-- About -->
+                <article id="about">
+                    <h2 class="major">About</h2>
+                    <!-- <span class="image main"><img src="images/pic03.jpg" alt="About Colide.O.Scope Designs" /></span> -->
+                    <p>Hi! I'm Terri, and I love turning everyday things into fun, colorful, and creative pieces. I make all kinds of handmade goodies—from playful jewelry and keychains (including cute crochet octopuses) to quirky magnets and stylish barrettes.</p>
+                    <p>Crafting has always been my happy place, and I started this little endeavor to share that joy with others. Everything you see here is made with care, imagination, and a little bit of sparkle.</p>
+                    <p>Thanks for stopping by. Take a look around and you may find something that makes you smile! 💖</p>
+                </article>
+                <!-- Contact -->
+                <article id="contact">
+                    <h2 class="major">Contact</h2>
+					<p><b>You can find me at the following location:</b><br><i>Saturdays and Sundays 8 am to 12 pm</i><br><b>St. Philip's Plaza Market in Tucson<br>4280 N Campbell Ave<br>Tucson, AZ. 85718</b><br><br>If you have any questions, feel free to contact me using the form below.</p>
+                    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="2c6eaea1-f662-497b-b9a8-d9245b387be8" />
+                        <!-- DOMAIN LOCK: only allow submissions from your GitHub Pages site -->
+                        <input type="hidden" name="domain" value="colide-o-scope.github.io" />
+                        <input type="hidden" name="subject" value="New Message From Colide.O.Scope Designs" />
+                        <input type="hidden" name="from_name" value="Colide.O.Scope Designs" />
+                        <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+                            <label for="website">Leave this field blank</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+                        </div>
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" required />
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" required />
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="4" required></textarea>
+                                <div><br></div>
+                                <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
+                                <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Reset" /></li>
+                        </ul>
+                        <input type="hidden" name="redirect" value="https://colide-o-scope.github.io/index.html?success=true">
+                    </form>
+                </article>
+            </div>
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Colide.O.Scope Designs. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+        </div>
+        <!-- BG -->
+        <div id="bg"></div>
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" style="display: none;">
+            <span class="lightbox-close">&times;</span>
+            <div class="lightbox-content">
+                <img class="lightbox-image" src="" alt="Lightbox Image" />
+                <h4 class="lightbox-title"></h4>
+                <p class="lightbox-description"></p>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script defer src="assets/js/jquery.min.js"></script>
+        <script defer src="assets/js/browser.min.js"></script>
+        <script defer src="assets/js/breakpoints.min.js"></script>
+        <script defer src="assets/js/util.js"></script>
+        <script defer src="assets/js/main.js"></script>
+        <script src="https://web3forms.com/client/script.js" async defer></script>
+        <script>
+            if (window.location.search.includes('success=true')) {
+                alert('Thank you for your message! We will get back to you soon.');
+            }
+            function initLightbox() {
+                console.log('Initializing lightbox');
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = document.querySelector('.lightbox-image');
+                const lightboxTitle = document.querySelector('.lightbox-title');
+                const lightboxDescription = document.querySelector('.lightbox-description');
+                const lightboxClose = document.querySelector('.lightbox-close');
+                const images = document.querySelectorAll('#work .features img');
+                console.log('Found images:', images.length);
+                
+                // Map small images to full-size images
+                const imageMap = {
+                    'Earrings-Small.jpg': 'images/Earrings.jpg',
+                    'Necklace-Small.jpg': 'images/Necklace.jpg',
+					'Rings-Small.jpg': 'images/Rings.jpg',
+					'Bracelets-Small.jpg': 'images/Bracelets.jpg',
+					'Magnets-Small.jpg': 'images/Magnets.jpg',
+					'Barrettes-Small.jpg': 'images/Barrettes.jpg',
+					'Cup-Wraps-Small.jpg': 'images/Cup-Wraps.jpg',
+					'Pins-Small.jpg': 'images/Pins.jpg',
+					'Key-Chains-Small.jpg': 'images/Key-Chains.jpg'
+                };
 
-    .intro p {
-      font-family: 'Merriweather', serif;
-      font-size: 1em;
-      line-height: 1.6;
-      margin: 20px auto 0;
-      max-width: 700px;
-      display: block;
-      text-align: justify;
-      color: #FFFFFF; /* Pure white for brightness */
-    }
-
-    .fade-char {
-      color: #FFFFFF; /* Ensure animated spans are white */
-      opacity: 0;
-      animation: fadeInChar 0.6s forwards;
-    }
-
-    .countdown {
-      background: #d8a7ca; /* soft pink */
-      text-align: center;
-      font-size: 1.5em;
-      color: #f5e6f0; /* very light pink */
-    }
-
-    .form-section {
-      background: linear-gradient(135deg, #d8a7ca, #b19cd9); /* pink to lavender */
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-
-    .form-section h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.5em;
-      margin: 0 0 20px;
-      text-align: center;
-      color: #f5e6f0; /* very light pink */
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    form input,
-    form textarea {
-      padding: 12px;
-      border: 2px solid #e0c9e6; /* pale lavender */
-      border-radius: 8px;
-      font-size: 0.9em;
-      background: #6b5b95; /* dark lavender */
-      color: #f5e6f0; /* very light pink */
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    form input:focus,
-    form textarea:focus {
-      outline: none;
-      border-color: #f5e6f0; /* very light pink */
-      box-shadow: 0 0 5px rgba(245, 230, 240, 0.6); /* very light pink glow */
-    }
-
-    form textarea {
-      grid-column: span 2;
-      resize: vertical;
-    }
-
-    form .subject {
-      grid-column: span 2;
-    }
-
-    form button {
-      grid-column: span 2;
-      background: #e0c9e6; /* pale lavender */
-      color: #6b5b95; /* dark lavender */
-      border: none;
-      padding: 12px 20px;
-      font-size: 0.9em;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
-
-    form button:hover {
-      background: #f5e6f0; /* very light pink */
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.8em;
-      color: #f5e6f0; /* very light pink */
-      text-shadow: 0 0 4px rgba(245, 230, 240, 0.3); /* very light pink shadow */
-    }
-
-    @keyframes dropFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInChar {
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-  <canvas id="petalCanvas"></canvas>
-
-  <section class="section intro" id="intro">
-    <h1>Colide.O.Scope Designs</h1>
-    <center>By Terri</center>
-    <p id="blurb"></p>
-  </section>
-
-  <section class="section countdown">
-    Launching in: <span id="timer">Loading...</span>
-  </section>
-
-  <section class="section form-section">
-    <h2>Stay Connected</h2>
-    <form action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="2c6eaea1-f662-497b-b9a8-d9245b387be8" />
-      <!-- DOMAIN LOCK: only allow submissions from your GitHub Pages site -->
-      <input type="hidden" name="domain" value="colide-o-scope.github.io" />
-      <input type="hidden" name="subject" value="New Message From Colide.O.Scope Designs" />
-      <input type="hidden" name="from_name" value="Colide.O.Scope Designs" />
-      <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
-        <label for="website">Leave this field blank</label>
-        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
-      </div>
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="subject" class="subject" placeholder="Subject" required />
-      <textarea rows="5" name="message" placeholder="Comment or Inquiry"></textarea>
-      <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
-      <div class="h-captcha" data-captcha="true" data-theme="light"></div>
-      <button type="submit">Send Message</button>
-      <input type="hidden" name="redirect" value="https://colide-o-scope.github.io/index.html?success=true">
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Designs by Terri. All rights reserved.
-  </footer>
-
-  <script>
-    // Success Alert
-    if (window.location.search.includes('success=true')) {
-      alert('Thank you for your message! We will get back to you soon.');
-    }
-
-    // Countdown Timer
-    const countdown = () => {
-      const launchDate = new Date("September 1, 2025 00:00:00").getTime();
-      const now = new Date().getTime();
-      const gap = launchDate - now;
-
-      const second = 1000;
-      const minute = second * 60;
-      const hour = minute * 60;
-      const day = hour * 24;
-
-      const d = Math.floor(gap / day);
-      const h = Math.floor((gap % day) / hour);
-      const m = Math.floor((gap % hour) / minute);
-      const s = Math.floor((gap % minute) / second);
-
-      document.getElementById("timer").innerText = `${d}d ${h}h ${m}m ${s}s`;
-    };
-
-    setInterval(countdown, 1000);
-
-    // Animated Blurb Text
-    const blurbText = "Discover the art of adornment with custom handmade jewelry that celebrates your unique spirit. Each piece is lovingly crafted to blend timeless elegance with personal expression. Let your style speak volumes — where every gem tells your story, and every detail is designed with heart.";
-    const blurbElement = document.getElementById("blurb");
-
-    blurbText.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.className = "fade-char";
-      span.style.animationDelay = `${i * 0.03}s`;
-      blurbElement.appendChild(span);
-    });
-
-    // Floating Heart Effect
-    const canvas = document.getElementById('petalCanvas');
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      console.log('Canvas context initialized successfully');
-    } else {
-      console.error('Failed to get canvas context');
-    }
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    const particleCount = 60; // Moderate for a delicate effect
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 4 + 2;
-        this.speedX = Math.random() * 0.3 - 0.15;
-        this.speedY = Math.random() * 0.6 - 0.3;
-        this.opacity = Math.random() * 0.4 + 0.5; // Range 0.5–0.9
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.x = Math.random() * canvas.width;
-        if (this.y < 0 || this.y > canvas.height) this.y = Math.random() * canvas.height;
-        this.opacity = Math.random() * 0.4 + 0.5; // Range 0.5–0.9
-      }
-
-      draw() {
-        ctx.fillStyle = `rgba(230, 180, 230, ${this.opacity})`; /* Brighter lavender */
-        ctx.beginPath();
-        // Draw sharper heart shape using Bezier curves
-        const s = this.size * 0.5; // Keep size from previous fix
-        ctx.moveTo(this.x, this.y - s);
-        ctx.bezierCurveTo(this.x - s * 1.4, this.y - s * 1.4, this.x - s * 1.4, this.y, this.x, this.y + s * 1.8);
-        ctx.bezierCurveTo(this.x + s * 1.4, this.y, this.x + s * 1.4, this.y - s * 1.4, this.x, this.y - s);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-      console.log(`Initialized ${particleCount} particles`);
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      console.log('Canvas resized to', canvas.width, 'x', canvas.height);
-    });
-  </script>
-
-  <script src="https://web3forms.com/client/script.js" async defer></script>
-</body>
+                images.forEach((image, index) => {
+                    console.log(`Image ${index + 1} src:`, image.src);
+                    image.removeEventListener('click', image.clickHandler);
+                    image.clickHandler = function (e) {
+                        console.log('Image clicked:', this.src, 'Alt:', this.alt);
+                        e.stopPropagation();
+                        e.preventDefault();
+                        // Get the filename from the src
+                        const srcParts = this.src.split('/');
+                        const fileName = srcParts[srcParts.length - 1];
+                        // Use the mapped full-size image if available, else fallback to the clicked image
+                        const fullSizeSrc = imageMap[fileName] || this.src;
+                        lightboxImage.src = fullSizeSrc;
+                        lightboxImage.alt = this.alt;
+                        lightboxTitle.textContent = this.parentElement.querySelector('h4').textContent;
+                        lightboxDescription.textContent = this.alt;
+                        lightbox.classList.add('active');
+                    };
+                    image.addEventListener('click', image.clickHandler);
+                });
+                lightboxImage.removeEventListener('click', lightboxImage.clickHandler);
+                lightboxImage.clickHandler = function (e) {
+                    console.log('Lightbox image clicked');
+                    e.stopPropagation();
+                    e.preventDefault();
+                    lightbox.classList.remove('active');
+                };
+                lightboxImage.addEventListener('click', lightboxImage.clickHandler);
+                lightboxTitle.removeEventListener('click', lightboxTitle.clickHandler);
+                lightboxTitle.clickHandler = function (e) {
+                    console.log('Lightbox title clicked');
+                    e.stopPropagation();
+                    e.preventDefault();
+                    lightbox.classList.remove('active');
+                };
+                lightboxTitle.addEventListener('click', lightboxTitle.clickHandler);
+                lightboxDescription.removeEventListener('click', lightboxDescription.clickHandler);
+                lightboxDescription.clickHandler = function (e) {
+                    console.log('Lightbox description clicked');
+                    e.stopPropagation();
+                    e.preventDefault();
+                    lightbox.classList.remove('active');
+                };
+                lightboxDescription.addEventListener('click', lightboxDescription.clickHandler);
+                lightboxClose.removeEventListener('click', lightboxClose.clickHandler);
+                lightboxClose.clickHandler = function (e) {
+                    console.log('Close button clicked');
+                    e.stopPropagation();
+                    e.preventDefault();
+                    lightbox.classList.remove('active');
+                };
+                lightboxClose.addEventListener('click', lightboxClose.clickHandler);
+                lightbox.removeEventListener('click', lightbox.clickHandler);
+                lightbox.clickHandler = function (e) {
+                    if (e.target === lightbox) {
+                        console.log('Overlay clicked');
+                        e.stopPropagation();
+                        e.preventDefault();
+                        lightbox.classList.remove('active');
+                    }
+                };
+                lightbox.addEventListener('click', lightbox.clickHandler);
+                document.removeEventListener('keydown', document.keydownHandler);
+                document.keydownHandler = function (e) {
+                    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                        console.log('Escape key pressed');
+                        e.stopPropagation();
+                        e.preventDefault();
+                        lightbox.classList.remove('active');
+                    }
+                };
+                document.addEventListener('keydown', document.keydownHandler);
+            }
+            window.addEventListener('hashchange', function (e) {
+                if (location.hash === '#work' && document.getElementById('lightbox').classList.contains('active')) {
+                    console.log('Preventing hash change while lightbox is open');
+                    e.preventDefault();
+                    history.replaceState(null, null, '#work');
+                }
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                initLightbox();
+                setTimeout(initLightbox, 1000);
+                window.addEventListener('hashchange', function () {
+                    if (location.hash === '#work') {
+                        console.log('Work modal opened, re-initializing lightbox');
+                        setTimeout(initLightbox, 500);
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
