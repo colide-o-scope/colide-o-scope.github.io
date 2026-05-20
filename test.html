@@ -136,6 +136,7 @@
 						<input type="hidden" name="email_template" value="box">
 						<input type="hidden" name="replyto" value="email">
 						<input type="hidden" name="title" value="New Contact Form Message">
+						<input type="hidden" name="captcha" value="true">
 						
 						<div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
 						    <label for="botcheck">Leave this field blank</label>
@@ -156,7 +157,7 @@
                             <label style="display:block; margin-bottom:6px; font-size:13px; color:var(--text-muted);">Message</label>
                             <textarea name="message" placeholder="Tell me about your dream piece or any questions..." rows="6" required></textarea>
                         </div>
-                        
+                        <div class="h-captcha" data-captcha="true" data-theme="light"></div>
                         <button type="submit" id="submit-btn">SEND MESSAGE</button>
                     </form>
                 </div>
@@ -174,6 +175,7 @@
         <img id="lightbox-image" src="" alt="">
     </div>
 
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
     function showToast() {
         const toast = document.getElementById('toast');
@@ -192,24 +194,19 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const form = e.target;
     const formData = new FormData(form);
 
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
-        });
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+    });
 
-        const result = await response.json();
-        console.log('Web3Forms response:', result);
+    const result = await response.json();
 
-        if (result.success) {
-            showToast();
-            form.reset();
-        } else {
-            alert("Web3Forms error:\n\n" + (result.message || JSON.stringify(result, null, 2)));
-        }
-    } catch (err) {
-        console.error('Network or parsing error:', err);
-        alert("Network error:\n\n" + err.message);
+    if (result.success) {
+        showToast();   // <-- uses the toast function you kept
+        form.reset();  // optional
+    } else {
+        console.error(result);
+        alert("Something went wrong. Please try again.");
     }
 });
 </script>
