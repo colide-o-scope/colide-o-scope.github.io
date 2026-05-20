@@ -192,19 +192,24 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const form = e.target;
     const formData = new FormData(form);
 
-    const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData
-    });
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData
+        });
 
-    const result = await response.json();
+        const result = await response.json();
+        console.log('Web3Forms response:', result);
 
-    if (result.success) {
-        showToast();   // <-- uses the toast function you kept
-        form.reset();  // optional
-    } else {
-        console.error(result);
-        alert("Something went wrong. Please try again.");
+        if (result.success) {
+            showToast();
+            form.reset();
+        } else {
+            alert("Web3Forms error:\n\n" + (result.message || JSON.stringify(result, null, 2)));
+        }
+    } catch (err) {
+        console.error('Network or parsing error:', err);
+        alert("Network error:\n\n" + err.message);
     }
 });
 </script>
